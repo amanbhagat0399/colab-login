@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row" style="margin-bottom: 477px">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    {% if pred == 1 %}
+    <div class="card card-body alert alert-danger">
+      <center>Sorry! Please consult DOCTOR.</center>
+    </div>
+    {% else %}
+    <div class="card card-body alert alert-success">
+      <center>Great! You are HEALTHY.</center>
+    </div>
+    {% endif %} {% if values|length == 8 %}
+    <table
+      style="
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        border: 1px solid black;
+      "
+    >
+      {% for i in range(0,diabetes_arr|length) %}
+      <tr style="border: 1px solid black">
+        <th style="padding: 10px">{{ diabetes_arr[i] }}</th>
+        <td style="padding: 10px">{{ values[i] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %} {% if values|length == 30 %}
+    <div style="display: flex">
+      <table
+        style="
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          border: 1px solid black;
+        "
+      >
+        {% for i in range(0,15) %}
+        <tr style="border: 1px solid black">
+          <th style="padding: 10px">{{ breast_cancer_arr[i] }}</th>
+          <td style="padding: 10px">{{ values[i] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <table
+        style="
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 20px;
+          border: 1px solid black;
+        "
+      >
+        {% for i in range(15, breast_cancer_arr|length) %}
+        <tr style="border: 1px solid black">
+          <th style="padding: 10px">{{ breast_cancer_arr[i] }}</th>
+          <td style="padding: 10px">{{ values[i] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endif %} {% if values|length == 13 %}
+    <table
+      style="
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        border: 1px solid black;
+      "
+    >
+      {% for i in range(0,heart_arr|length) %}
+      <tr style="border: 1px solid black">
+        <th style="padding: 10px">{{ heart_arr[i] }}</th>
+        <td style="padding: 10px">{{ values[i] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <a href="/" class="btn btn-block btn-primary"
+          >Back to Home</a
+        >
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+{% endblock %}
